@@ -1,0 +1,59 @@
+訓練資料：
+  train: 317 題
+  /home/isai-lab/hw1/data/val_train.jsonl: 1731 題
+  排除與保留集重複的題目：2 題，剩 2046 題
+  訓練筆數 8184（augment=rotate），正確答案分布 {'A': 2046, 'B': 2046, 'C': 2046, 'D': 2046}
+---- 訓練資料範例（模型實際看到的內容，【】內是要學的答案）----
+以下是關於牙醫學的單選題，請直接給出正確答案的選項。
+
+下列位置之窩洞，何者不屬於第一類型窩洞？
+A. 上顎第一大臼齒咬頭尖端（cusp tip）
+B. 下顎第一小臼齒咬合面（occlusal surface）
+C. 上顎側門齒腭側面（palatal surface）
+D. 下顎第二大臼齒頰側溝（buccal groove）
+答案：【A】
+----------------------------------------
+== 訓練前（應與官方評估的起點模型分數一致） ==
+  val_holdout.jsonl              MACRO 0.2249  micro 0.2446
+  val_holdout_shuffled.jsonl     MACRO 0.2521  micro 0.2618
+epoch 1 step 50/1536 loss 1.7657 lr 2.01e-04
+epoch 1 step 100/1536 loss 1.6055 lr 2.95e-04
+epoch 1 step 150/1536 loss 1.5048 lr 2.85e-04
+epoch 1 step 200/1536 loss 1.5139 lr 2.75e-04
+epoch 1 step 250/1536 loss 1.4693 lr 2.64e-04
+epoch 1 step 300/1536 loss 1.4629 lr 2.54e-04
+epoch 1 step 350/1536 loss 1.4192 lr 2.44e-04
+epoch 1 step 400/1536 loss 1.4502 lr 2.33e-04
+epoch 1 step 450/1536 loss 1.4603 lr 2.23e-04
+epoch 1 step 500/1536 loss 1.4229 lr 2.13e-04
+== epoch 1 結束（累計 1.2 分鐘） ==
+  val_holdout.jsonl              MACRO 0.3004  micro 0.2682
+  val_holdout_shuffled.jsonl     MACRO 0.2574  micro 0.2446
+epoch 2 step 550/1536 loss 1.4304 lr 2.03e-04
+epoch 2 step 600/1536 loss 1.4151 lr 1.92e-04
+epoch 2 step 650/1536 loss 1.4333 lr 1.82e-04
+epoch 2 step 700/1536 loss 1.4185 lr 1.72e-04
+epoch 2 step 750/1536 loss 1.4146 lr 1.62e-04
+epoch 2 step 800/1536 loss 1.4285 lr 1.51e-04
+epoch 2 step 850/1536 loss 1.4212 lr 1.41e-04
+epoch 2 step 900/1536 loss 1.4072 lr 1.31e-04
+epoch 2 step 950/1536 loss 1.4051 lr 1.20e-04
+epoch 2 step 1000/1536 loss 1.4058 lr 1.10e-04
+== epoch 2 結束（累計 2.5 分鐘） ==
+  val_holdout.jsonl              MACRO 0.2563  micro 0.2747
+  val_holdout_shuffled.jsonl     MACRO 0.2030  micro 0.2253
+epoch 3 step 1050/1536 loss 1.4020 lr 9.99e-05
+epoch 3 step 1100/1536 loss 1.3998 lr 8.96e-05
+epoch 3 step 1150/1536 loss 1.4119 lr 7.93e-05
+epoch 3 step 1200/1536 loss 1.4048 lr 6.90e-05
+epoch 3 step 1250/1536 loss 1.4166 lr 5.88e-05
+epoch 3 step 1300/1536 loss 1.4008 lr 4.85e-05
+epoch 3 step 1350/1536 loss 1.3946 lr 3.82e-05
+epoch 3 step 1400/1536 loss 1.3901 lr 2.79e-05
+epoch 3 step 1450/1536 loss 1.3907 lr 1.77e-05
+epoch 3 step 1500/1536 loss 1.3917 lr 7.40e-06
+== epoch 3 結束（累計 3.8 分鐘） ==
+  val_holdout.jsonl              MACRO 0.2280  micro 0.2446
+  val_holdout_shuffled.jsonl     MACRO 0.2680  micro 0.2639
+
+完成：/home/isai-lab/hw1/models/mc_rotate_lr3e-4（重新載入成功，參數量 63.91M，訓練 3.9 分鐘）
