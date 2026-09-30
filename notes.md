@@ -6,6 +6,7 @@
 - Python 3.11（conda 環境 minigpt）
 - PyTorch 2.14.0+cu130
 - MiniMind commit：f659b55761b754d306bd140573493a6543cafd7f
+- 額外安裝 opencc-python-reimplemented（tokenizer 分析用）
 
 ## 待確認事項
 - 9/29 寄信問助教 → 9/30 教授已回覆（見下方）
