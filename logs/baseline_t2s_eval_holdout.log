@@ -1,0 +1,15 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Model: models/baseline_t2s | params: 63.9M | device: cuda
+Questions: 466 | subjects: 66 | few-shot: 0 | chat template: False
+  200/466  running acc=0.2300
+  400/466  running acc=0.2350
+
+=== Results ===
+  Humanities       0.3905
+  Other            0.2170
+  STEM             0.1989
+  Social Sciences  0.2291
+  MACRO (official) 0.2589
+  micro            0.2468 ± 0.0200
+  time: 4.6s | truncated prompts: 0
+Saved results to results/baseline_t2s_holdout.json
