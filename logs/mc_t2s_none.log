@@ -1,0 +1,46 @@
+訓練資料：
+  train: 317 題
+  /home/isai-lab/hw1/data/val_train.jsonl: 1731 題
+  排除與保留集重複的題目：2 題，剩 2046 題
+  訓練筆數 8184（augment=none），正確答案分布 {'A': 2048, 'B': 2060, 'C': 2024, 'D': 2052}
+---- 訓練資料範例（模型實際看到的內容，【】內是要學的答案）----
+以下是关于牙医学的单选题，请直接给出正确答案的选项。
+
+下列位置之窝洞，何者不属于第一类型窝洞？
+A. 下颚第一小臼齿咬合面（occlusal surface）
+B. 上颚侧门齿腭侧面（palatal surface）
+C. 下颚第二大臼齿颊侧沟（buccal groove）
+D. 上颚第一大臼齿咬头尖端（cusp tip）
+答案：【D】
+----------------------------------------
+== 訓練前（應與官方評估的起點模型分數一致） ==
+  val_holdout.jsonl              MACRO 0.2589  micro 0.2468
+  val_holdout_shuffled.jsonl     MACRO 0.2299  micro 0.2425
+epoch 1 step 50/1024 loss 1.6095 lr 2.00e-05
+epoch 1 step 100/1024 loss 1.4438 lr 1.90e-05
+epoch 1 step 150/1024 loss 1.4394 lr 1.80e-05
+epoch 1 step 200/1024 loss 1.3804 lr 1.69e-05
+epoch 1 step 250/1024 loss 1.2940 lr 1.59e-05
+epoch 1 step 300/1024 loss 1.1756 lr 1.49e-05
+epoch 1 step 350/1024 loss 0.9939 lr 1.39e-05
+epoch 1 step 400/1024 loss 0.8950 lr 1.28e-05
+epoch 1 step 450/1024 loss 0.6063 lr 1.18e-05
+epoch 1 step 500/1024 loss 0.4554 lr 1.08e-05
+== epoch 1 結束（累計 0.8 分鐘） ==
+  val_holdout.jsonl              MACRO 0.2612  micro 0.2532
+  val_holdout_shuffled.jsonl     MACRO 0.2103  micro 0.2361
+epoch 2 step 550/1024 loss 0.2417 lr 9.74e-06
+epoch 2 step 600/1024 loss 0.1377 lr 8.72e-06
+epoch 2 step 650/1024 loss 0.1285 lr 7.69e-06
+epoch 2 step 700/1024 loss 0.0679 lr 6.66e-06
+epoch 2 step 750/1024 loss 0.0467 lr 5.63e-06
+epoch 2 step 800/1024 loss 0.0294 lr 4.60e-06
+epoch 2 step 850/1024 loss 0.0194 lr 3.58e-06
+epoch 2 step 900/1024 loss 0.0052 lr 2.55e-06
+epoch 2 step 950/1024 loss 0.0053 lr 1.52e-06
+epoch 2 step 1000/1024 loss 0.0021 lr 4.93e-07
+== epoch 2 結束（累計 1.7 分鐘） ==
+  val_holdout.jsonl              MACRO 0.2705  micro 0.2554
+  val_holdout_shuffled.jsonl     MACRO 0.2105  micro 0.2275
+
+完成：/home/isai-lab/hw1/models/mc_t2s_none（重新載入成功，參數量 63.91M，訓練 1.8 分鐘）
