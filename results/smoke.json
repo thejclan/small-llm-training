@@ -1,0 +1,36 @@
+{
+  "model_path": "./minimind-3",
+  "n_params": 63912192,
+  "data": "practice",
+  "n_questions": 20,
+  "num_fewshot": 0,
+  "chat_template": false,
+  "macro_accuracy": 0.0848,
+  "micro_accuracy": 0.15,
+  "stderr_micro": 0.0798,
+  "category_accuracy": {
+    "Humanities": 0.0,
+    "Other": 0.2143,
+    "STEM": 0.0,
+    "Social Sciences": 0.125
+  },
+  "subject_accuracy": {
+    "accounting": 1.0,
+    "basic_medical_science": 0.0,
+    "clinical_psychology": 0.0,
+    "computer_science": 0.0,
+    "dentistry": 0.0,
+    "education": 0.0,
+    "insurance_studies": 0.5,
+    "introduction_to_law": 0.0,
+    "occupational_therapy_for_psychological_disorders": 0.0,
+    "optometry": 0.0,
+    "pharmacology": 0.0,
+    "politic_science": 0.5,
+    "trade": 0.0,
+    "tve_design": 0.0,
+    "tve_natural_sciences": 0.0
+  },
+  "n_truncated_prompts": 0,
+  "seconds": -1.2
+}

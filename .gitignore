@@ -1,0 +1,13 @@
+# 別人的專案與大型檔案
+minimind/
+minimind-3/
+models/
+data/
+# 助教的評估腳本（未經授權不公開）
+eval_tmmluplus.py
+# 每題的預測細節
+results/*_pred.jsonl
+# Windows 複製檔案時產生的標記檔、Python 暫存
+*:Zone.Identifier
+__pycache__/
+*.pyc
