@@ -6,7 +6,7 @@
 - Python 3.11（conda 環境 minigpt）
 - PyTorch 2.14.0+cu130
 - MiniMind commit：f659b55761b754d306bd140573493a6543cafd7f
-- 額外安裝 opencc-python-reimplemented（tokenizer 分析用）
+- 額外安裝 opencc-python-reimplemented（tokenizer 分析用）；套件版本清單存於 requirements.txt
 
 ## 待確認事項
 - 9/29 寄信問助教 → 9/30 教授已回覆（見下方）
@@ -90,3 +90,36 @@
 - 打亂選項：MACRO 0.2521，micro 0.2618 ± 0.0204
 - 保留集誤差約 ±2 個百分點，4 點以內的差距難以和雜訊區分
 
+## Tokenizer 分析（9/30）
+- 指令：python scripts/analyze_tokenizer.py（只用 validation 2,197 題，預設 prompt 格式）
+- 結果：results/tokenizer_analysis.json
+- 題目長度（token）：繁體 平均 194.7、中位數 168、p90 296、最長 1726
+  - 超過 340：5.3%；超過 768：1.1%（簡體對照為 2.2%、0.3%）
+- 繁體比簡體多用 40.9% 的 token；每個 token 平均 0.84 字（繁）vs 1.19 字（簡）
+- 被拆碎的中文字（以出現次數計）：繁體 38.6% vs 簡體 8.2%
+  - 不重複字：繁體 3445 字中 76.1% 被拆碎；簡體 3323 字中 61.5%
+  - 最常被拆碎：為、於、時、關、與、會、險、對、動、體、應、國、發、業、敘、經、產、學、確、種
+- 選項字母 A/B/C/D 都是單一 token
+- 結論：
+  - 序列長度不是主要問題（僅約 5% 題目超過 pretrain 長度）→ 方向 4 調序列長度效益有限
+  - 繁體字才是瓶頸：常用字的繁體版本被拆成陌生碎片，模型等於讀到近四成亂碼
+- 下一步：A. tokenizer 加入繁轉簡（免訓練）→ 視結果決定是否 B. 繁體化 MiniMind 資料續訓 → 在最佳版本上做方向 3
+
+## 方向 2：tokenizer 繁轉簡（9/30）
+- 指令：python scripts/add_t2s_normalizer.py --src models/baseline --dst models/baseline_t2s
+- 對照表 3,553 字（OpenCC t2s 逐字產生，不用 TMMLU+ 資料）；A/B/C/D 仍為單一 token
+- 平均 token 數 194.7 → 138.2；切字每題 0.11 → 1.96 ms
+- 保留集：原始 MACRO 0.2589 / micro 0.2468；打亂 0.2299 / 0.2425
+- 結論：無可觀察的進步（誤差 ±2）。模型本來就不會答題，看懂題目也無法利用
+- 決定：今晚不跑 B（繁體化資料續訓），效益低
+
+## 方向 3：選擇題格式訓練（9/30）
+- 腳本：scripts/train_mc.py（prompt 與計分直接沿用評估腳本；只對答案字母計算 loss）
+- 資料：TMMLU+ train 317 題（HW1.docx 寫 321）+ val_train 1,731 題，排除與保留集重複 2 題 → 2,046 題
+- 驗證：訓練前分數與官方評估完全一致 → 格式與計分已對齊
+- 實驗 2（baseline + rotate，lr 2e-5，2 輪，2.6 分鐘）
+  - 原始順序 micro 24.46 → 28.11 → 29.61；打亂選項 26.18 → 24.25 → 24.25
+  - loss 1.62 → 1.39 ≈ ln(4)：學會格式，但沒學會分辨選項內容
+  - 原始順序的進步未出現在打亂選項 → 可能只是字母偏好的運氣
+
+  
