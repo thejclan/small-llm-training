@@ -1,0 +1,152 @@
+訓練資料：
+  train: 317 題
+  /home/isai-lab/hw1/data/val_train.jsonl: 1731 題
+  排除與保留集重複的題目：2 題，剩 2046 題
+  訓練筆數 8184（augment=rotate），正確答案分布 {'A': 2046, 'B': 2046, 'C': 2046, 'D': 2046}
+---- 訓練資料範例（模型實際看到的內容，【】內是要學的答案）----
+以下是關於牙醫學的單選題，請直接給出正確答案的選項。
+
+下列位置之窩洞，何者不屬於第一類型窩洞？
+A. 上顎第一大臼齒咬頭尖端（cusp tip）
+B. 下顎第一小臼齒咬合面（occlusal surface）
+C. 上顎側門齒腭側面（palatal surface）
+D. 下顎第二大臼齒頰側溝（buccal groove）
+答案：【A】
+----------------------------------------
+== 訓練前（應與官方評估的起點模型分數一致） ==
+  val_holdout.jsonl              MACRO 0.2249  micro 0.2446
+  val_holdout_shuffled.jsonl     MACRO 0.2521  micro 0.2618
+epoch 1 step 50/5120 loss 1.6193 lr 1.99e-05
+epoch 1 step 100/5120 loss 1.5901 lr 3.95e-05
+epoch 1 step 150/5120 loss 1.5137 lr 5.90e-05
+epoch 1 step 200/5120 loss 1.5030 lr 7.85e-05
+epoch 1 step 250/5120 loss 1.4975 lr 9.80e-05
+epoch 1 step 300/5120 loss 1.4843 lr 9.91e-05
+epoch 1 step 350/5120 loss 1.4280 lr 9.81e-05
+epoch 1 step 400/5120 loss 1.4516 lr 9.70e-05
+epoch 1 step 450/5120 loss 1.4604 lr 9.60e-05
+epoch 1 step 500/5120 loss 1.4254 lr 9.50e-05
+== epoch 1 結束（累計 1.2 分鐘） ==
+  val_holdout.jsonl              MACRO 0.3004  micro 0.2682
+  val_holdout_shuffled.jsonl     MACRO 0.2574  micro 0.2446
+epoch 2 step 550/5120 loss 1.4336 lr 9.40e-05
+epoch 2 step 600/5120 loss 1.4161 lr 9.29e-05
+epoch 2 step 650/5120 loss 1.4323 lr 9.19e-05
+epoch 2 step 700/5120 loss 1.4207 lr 9.09e-05
+epoch 2 step 750/5120 loss 1.4185 lr 8.98e-05
+epoch 2 step 800/5120 loss 1.4311 lr 8.88e-05
+epoch 2 step 850/5120 loss 1.4365 lr 8.78e-05
+epoch 2 step 900/5120 loss 1.4107 lr 8.68e-05
+epoch 2 step 950/5120 loss 1.4115 lr 8.57e-05
+epoch 2 step 1000/5120 loss 1.4169 lr 8.47e-05
+== epoch 2 結束（累計 2.5 分鐘） ==
+  val_holdout.jsonl              MACRO 0.2563  micro 0.2747
+  val_holdout_shuffled.jsonl     MACRO 0.2030  micro 0.2253
+epoch 3 step 1050/5120 loss 1.4111 lr 8.37e-05
+epoch 3 step 1100/5120 loss 1.4167 lr 8.26e-05
+epoch 3 step 1150/5120 loss 1.4326 lr 8.16e-05
+epoch 3 step 1200/5120 loss 1.4181 lr 8.06e-05
+epoch 3 step 1250/5120 loss 1.4287 lr 7.96e-05
+epoch 3 step 1300/5120 loss 1.4205 lr 7.85e-05
+epoch 3 step 1350/5120 loss 1.4074 lr 7.75e-05
+epoch 3 step 1400/5120 loss 1.4044 lr 7.65e-05
+epoch 3 step 1450/5120 loss 1.4089 lr 7.55e-05
+epoch 3 step 1500/5120 loss 1.4150 lr 7.44e-05
+== epoch 3 結束（累計 3.9 分鐘） ==
+  val_holdout.jsonl              MACRO 0.2280  micro 0.2446
+  val_holdout_shuffled.jsonl     MACRO 0.2681  micro 0.2618
+epoch 4 step 1550/5120 loss 1.4059 lr 7.34e-05
+epoch 4 step 1600/5120 loss 1.4099 lr 7.24e-05
+epoch 4 step 1650/5120 loss 1.4114 lr 7.13e-05
+epoch 4 step 1700/5120 loss 1.4074 lr 7.03e-05
+epoch 4 step 1750/5120 loss 1.4120 lr 6.93e-05
+epoch 4 step 1800/5120 loss 1.4068 lr 6.83e-05
+epoch 4 step 1850/5120 loss 1.4028 lr 6.72e-05
+epoch 4 step 1900/5120 loss 1.4203 lr 6.62e-05
+epoch 4 step 1950/5120 loss 1.4030 lr 6.52e-05
+epoch 4 step 2000/5120 loss 1.3977 lr 6.41e-05
+== epoch 4 結束（累計 5.2 分鐘） ==
+  val_holdout.jsonl              MACRO 0.2280  micro 0.2446
+  val_holdout_shuffled.jsonl     MACRO 0.2681  micro 0.2618
+epoch 5 step 2050/5120 loss 1.4063 lr 6.31e-05
+epoch 5 step 2100/5120 loss 1.3989 lr 6.21e-05
+epoch 5 step 2150/5120 loss 1.3985 lr 6.11e-05
+epoch 5 step 2200/5120 loss 1.3936 lr 6.00e-05
+epoch 5 step 2250/5120 loss 1.3868 lr 5.90e-05
+epoch 5 step 2300/5120 loss 1.3998 lr 5.80e-05
+epoch 5 step 2350/5120 loss 1.3652 lr 5.69e-05
+epoch 5 step 2400/5120 loss 1.3538 lr 5.59e-05
+epoch 5 step 2450/5120 loss 1.3081 lr 5.49e-05
+epoch 5 step 2500/5120 loss 1.2621 lr 5.39e-05
+epoch 5 step 2550/5120 loss 1.2710 lr 5.28e-05
+== epoch 5 結束（累計 6.6 分鐘） ==
+  val_holdout.jsonl              MACRO 0.2647  micro 0.2554
+  val_holdout_shuffled.jsonl     MACRO 0.2957  micro 0.2682
+epoch 6 step 2600/5120 loss 1.0247 lr 5.18e-05
+epoch 6 step 2650/5120 loss 0.9516 lr 5.08e-05
+epoch 6 step 2700/5120 loss 0.8844 lr 4.98e-05
+epoch 6 step 2750/5120 loss 0.7851 lr 4.87e-05
+epoch 6 step 2800/5120 loss 0.7437 lr 4.77e-05
+epoch 6 step 2850/5120 loss 0.6710 lr 4.67e-05
+epoch 6 step 2900/5120 loss 0.5731 lr 4.56e-05
+epoch 6 step 2950/5120 loss 0.5433 lr 4.46e-05
+epoch 6 step 3000/5120 loss 0.4888 lr 4.36e-05
+epoch 6 step 3050/5120 loss 0.3513 lr 4.26e-05
+== epoch 6 結束（累計 7.9 分鐘） ==
+  val_holdout.jsonl              MACRO 0.2892  micro 0.2425
+  val_holdout_shuffled.jsonl     MACRO 0.2799  micro 0.2682
+epoch 7 step 3100/5120 loss 0.3042 lr 4.15e-05
+epoch 7 step 3150/5120 loss 0.2833 lr 4.05e-05
+epoch 7 step 3200/5120 loss 0.2576 lr 3.95e-05
+epoch 7 step 3250/5120 loss 0.2293 lr 3.84e-05
+epoch 7 step 3300/5120 loss 0.2446 lr 3.74e-05
+epoch 7 step 3350/5120 loss 0.1875 lr 3.64e-05
+epoch 7 step 3400/5120 loss 0.1992 lr 3.54e-05
+epoch 7 step 3450/5120 loss 0.1718 lr 3.43e-05
+epoch 7 step 3500/5120 loss 0.2026 lr 3.33e-05
+epoch 7 step 3550/5120 loss 0.2147 lr 3.23e-05
+== epoch 7 結束（累計 9.3 分鐘） ==
+  val_holdout.jsonl              MACRO 0.3406  micro 0.2768
+  val_holdout_shuffled.jsonl     MACRO 0.3128  micro 0.2790
+epoch 8 step 3600/5120 loss 0.1837 lr 3.13e-05
+epoch 8 step 3650/5120 loss 0.1171 lr 3.02e-05
+epoch 8 step 3700/5120 loss 0.1112 lr 2.92e-05
+epoch 8 step 3750/5120 loss 0.1328 lr 2.82e-05
+epoch 8 step 3800/5120 loss 0.1328 lr 2.71e-05
+epoch 8 step 3850/5120 loss 0.1239 lr 2.61e-05
+epoch 8 step 3900/5120 loss 0.1443 lr 2.51e-05
+epoch 8 step 3950/5120 loss 0.0924 lr 2.41e-05
+epoch 8 step 4000/5120 loss 0.1363 lr 2.30e-05
+epoch 8 step 4050/5120 loss 0.1160 lr 2.20e-05
+== epoch 8 結束（累計 10.6 分鐘） ==
+  val_holdout.jsonl              MACRO 0.2914  micro 0.2575
+  val_holdout_shuffled.jsonl     MACRO 0.3021  micro 0.2704
+epoch 9 step 4100/5120 loss 0.1234 lr 2.10e-05
+epoch 9 step 4150/5120 loss 0.0779 lr 1.99e-05
+epoch 9 step 4200/5120 loss 0.0710 lr 1.89e-05
+epoch 9 step 4250/5120 loss 0.0583 lr 1.79e-05
+epoch 9 step 4300/5120 loss 0.0769 lr 1.69e-05
+epoch 9 step 4350/5120 loss 0.0731 lr 1.58e-05
+epoch 9 step 4400/5120 loss 0.1081 lr 1.48e-05
+epoch 9 step 4450/5120 loss 0.0750 lr 1.38e-05
+epoch 9 step 4500/5120 loss 0.0677 lr 1.27e-05
+epoch 9 step 4550/5120 loss 0.0869 lr 1.17e-05
+epoch 9 step 4600/5120 loss 0.0926 lr 1.07e-05
+== epoch 9 結束（累計 11.9 分鐘） ==
+  val_holdout.jsonl              MACRO 0.3024  micro 0.2704
+  val_holdout_shuffled.jsonl     MACRO 0.3015  micro 0.2811
+epoch 10 step 4650/5120 loss 0.0414 lr 9.66e-06
+epoch 10 step 4700/5120 loss 0.0585 lr 8.63e-06
+epoch 10 step 4750/5120 loss 0.0683 lr 7.61e-06
+epoch 10 step 4800/5120 loss 0.0424 lr 6.58e-06
+epoch 10 step 4850/5120 loss 0.0563 lr 5.55e-06
+epoch 10 step 4900/5120 loss 0.0750 lr 4.52e-06
+epoch 10 step 4950/5120 loss 0.0618 lr 3.50e-06
+epoch 10 step 5000/5120 loss 0.0565 lr 2.47e-06
+epoch 10 step 5050/5120 loss 0.0641 lr 1.44e-06
+epoch 10 step 5100/5120 loss 0.0593 lr 4.11e-07
+== epoch 10 結束（累計 13.3 分鐘） ==
+  val_holdout.jsonl              MACRO 0.3321  micro 0.2854
+  val_holdout_shuffled.jsonl     MACRO 0.3137  micro 0.2790
+
+完成：/home/isai-lab/hw1/models/mc_rotate_lr1e-4_ep10（重新載入成功，參數量 63.91M，訓練 13.4 分鐘）
