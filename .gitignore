@@ -11,3 +11,7 @@ results/*_pred.jsonl
 *:Zone.Identifier
 __pycache__/
 *.pyc
+
+# 繳交資料夾：模型太大不進 git
+submission/*/model/
+*.zip

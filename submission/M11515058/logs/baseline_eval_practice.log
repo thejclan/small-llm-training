@@ -1,0 +1,23 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Model: models/baseline | params: 63.9M | device: cuda
+Questions: 2001 | subjects: 66 | few-shot: 0 | chat template: False
+  200/2001  running acc=0.2950
+  400/2001  running acc=0.2525
+  600/2001  running acc=0.2550
+  800/2001  running acc=0.2500
+  1000/2001  running acc=0.2460
+  1200/2001  running acc=0.2433
+  1400/2001  running acc=0.2407
+  1600/2001  running acc=0.2456
+  1800/2001  running acc=0.2411
+  2000/2001  running acc=0.2360
+
+=== Results ===
+  Humanities       0.1851
+  Other            0.2383
+  STEM             0.2128
+  Social Sciences  0.2403
+  MACRO (official) 0.2191
+  micro            0.2359 ± 0.0095
+  time: 18.2s | truncated prompts: 0
+Saved results to results/baseline_practice.json
