@@ -1,0 +1,15 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Model: models/mc_rotate_lr1e-4_ep10 | params: 63.9M | device: cuda
+Questions: 466 | subjects: 66 | few-shot: 0 | chat template: False
+  200/466  running acc=0.2700
+  400/466  running acc=0.2750
+
+=== Results ===
+  Humanities       0.2937
+  Other            0.3325
+  STEM             0.3104
+  Social Sciences  0.3183
+  MACRO (official) 0.3137
+  micro            0.2790 ± 0.0208
+  time: 4.8s | truncated prompts: 0
+Saved results to results/mc_ep10_holdout_shuffled.json
