@@ -1,0 +1,15 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Model: ./minimind-3 | params: 63.9M | device: cuda
+Questions: 466 | subjects: 66 | few-shot: 0 | chat template: False
+  200/466  running acc=0.2100
+  400/466  running acc=0.2400
+
+=== Results ===
+  Humanities       0.2492
+  Other            0.2315
+  STEM             0.2311
+  Social Sciences  0.2248
+  MACRO (official) 0.2342
+  micro            0.2489 ± 0.0200
+  time: 4.5s | truncated prompts: 0
+Saved results to results/minimind3_holdout.json

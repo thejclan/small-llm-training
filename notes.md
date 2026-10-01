@@ -191,3 +191,15 @@
 - 限制：split 的去重只排除完全相同的題目，未處理標點差異
 - 決定：最終模型 = models/mc_rotate_lr1e-4_ep10
 
+## 最終模型 practice set 評估（9/30，僅此一次）
+- 指令：python eval_tmmluplus.py eval --model_path models/mc_rotate_lr1e-4_ep10 --output results/final_practice.json
+- practice set 實際 2,001 題
+- 最終模型：MACRO 26.24%，micro 25.59% ± 0.98（21.5 秒，truncated 0）
+- baseline：MACRO 21.91%，micro 23.59% ± 0.95
+- 解讀：
+  - 差距大部分來自消除字母偏好（baseline 在 practice set 低於亂猜）
+  - 相對 25% 亂猜僅 +0.6（micro）/ +1.2（MACRO），讀題能力即使存在也很微弱
+- 保留集 vs practice set（MACRO）：baseline 22.49 vs 21.91；最終模型 33.21 vs 26.24
+  - 最終模型在保留集偏高：保留集小、MACRO 波動大，且模型依保留集選出（偏樂觀）
+
+  
