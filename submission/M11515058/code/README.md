@@ -36,6 +36,17 @@ bash run.sh
 - `scripts/analyze_tokenizer.py`、`add_t2s_normalizer.py`、`check_near_duplicates.py`：報告中的分析與實驗
 
 ## 預期結果與注意事項
-GPU 運算有些微不確定性，即使隨機種子相同，重跑的分數也可能有小幅差異。
-開發時的最終模型結果：保留集 micro 28.54%（原始順序）、27.90%（打亂選項）；
-practice set MACRO 26.24%。
+GPU 運算有些微不確定性，即使隨機種子相同，重跑結果也不會完全一致。
+我們以本 run.sh 實際完整重跑過一次（記錄見 `../logs/reproduction/`）：
+
+| 模型 | 保留集 micro（原始 / 打亂） | practice set MACRO |
+| --- | --- | --- |
+| baseline（原始訓練） | 24.46 / 26.18 | 21.91 |
+| 最終模型（繳交的 `model/`） | 28.54 / 27.90 | 26.24 |
+| 重跑的 baseline | 24.89 / 26.39 | — |
+| 重跑的最終模型 | 24.25 / 26.61 | 25.36 |
+
+- baseline 重現良好：最後 loss 與保留集分數的差距都在誤差範圍內
+- Stage 3 格式訓練的單次結果波動較大：重跑時 loss 走勢相同，但保留集未出現原本約 3 個百分點的進步；
+  兩次結果的差異在統計上不顯著，詳見報告第 5 節
+- 繳交的 `model/` 是原始訓練的最終模型，其訓練記錄為 `../logs/pretrain.log`、`sft.log`、`mc_sft.log`
