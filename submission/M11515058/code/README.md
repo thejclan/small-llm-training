@@ -15,14 +15,18 @@
 conda create -n minigpt -c conda-forge --override-channels python=3.11 -y
 conda activate minigpt
 pip install torch==2.14.0   # PyPI 預設為 CUDA 13.0 版本，需驅動支援 CUDA 13.0 以上
-pip install -r requirements.txt
+pip install --no-deps -r requirements.txt
 ```
+
+`requirements.txt` 是從實際執行的環境完整匯出的，請務必加上 `--no-deps`，照清單原樣安裝。
+MiniMind 的套件清單指定了 `rich==13.7.1`，與 `huggingface_hub` 的命令列工具所依賴的 `typer`
+（要求 `rich>=13.8.0`）在版本標示上衝突；此衝突不影響執行，但不加 `--no-deps` 時 pip 會拒絕安裝。
 
 若驅動不支援 CUDA 13.0，請先依 https://pytorch.org 安裝與驅動相符的 PyTorch 2.14.0，
 再用以下指令安裝其餘套件（排除與 CUDA 13.0 綁定的 torch、triton 與 nvidia- 套件，以免被換回）：
 ```bash
 grep -viE "^(torch|triton|nvidia-)" requirements.txt > requirements_no_torch.txt
-pip install -r requirements_no_torch.txt
+pip install --no-deps -r requirements_no_torch.txt
 ```
 
 ## 執行
@@ -64,3 +68,4 @@ GPU 運算有些微不確定性，即使隨機種子相同，重跑結果也不�
 - Stage 3 格式訓練的單次結果波動較大：重跑時 loss 走勢相同，但保留集未出現原本約 3 個百分點的進步；
   兩次結果的差異在統計上不顯著，詳見報告第 5 節
 - 繳交的 `model/` 是原始訓練的最終模型，其訓練記錄為 `../logs/pretrain.log`、`sft.log`、`mc_sft.log`
+
