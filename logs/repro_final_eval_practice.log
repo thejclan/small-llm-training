@@ -1,0 +1,23 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Model: /home/isai-lab/hw1_repro/code/output/model | params: 63.9M | device: cuda
+Questions: 2001 | subjects: 66 | few-shot: 0 | chat template: False
+  200/2001  running acc=0.2550
+  400/2001  running acc=0.2500
+  600/2001  running acc=0.2567
+  800/2001  running acc=0.2662
+  1000/2001  running acc=0.2690
+  1200/2001  running acc=0.2783
+  1400/2001  running acc=0.2657
+  1600/2001  running acc=0.2569
+  1800/2001  running acc=0.2572
+  2000/2001  running acc=0.2490
+
+=== Results ===
+  Humanities       0.2452
+  Other            0.2407
+  STEM             0.2668
+  Social Sciences  0.2614
+  MACRO (official) 0.2536
+  micro            0.2489 ± 0.0097
+  time: 20.5s | truncated prompts: 0
+Saved results to results/repro_final_practice.json
