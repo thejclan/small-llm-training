@@ -1,24 +1,38 @@
 # HW1 重現說明（M11515058）
 
 ## 環境
-開發與測試環境：Windows 11 + WSL2（Ubuntu 24.04）、NVIDIA RTX 4070 系列 16GB、
+
+**需求**：Linux（或 WSL2）、NVIDIA GPU（顯示記憶體 8GB 以上；開發時峰值約 7.3GB）、
+可連線 GitHub 與 Hugging Face、約 10GB 硬碟空間、git、conda
+
+**開發與測試環境**：Windows 11 + WSL2（Ubuntu 24.04）、NVIDIA GeForce RTX 4070 Ti SUPER 16GB、
 驅動 591.86、Python 3.11、PyTorch 2.14.0（CUDA 13.0）
+
+**主要套件**：torch 2.14.0+cu130、transformers 4.57.6、datasets 3.6.0、tokenizers 0.22.2
+（完整清單見 `requirements.txt`）
 
 ```bash
 conda create -n minigpt -c conda-forge --override-channels python=3.11 -y
 conda activate minigpt
-# PyTorch 請依 https://pytorch.org 選擇與驅動相符的 CUDA 版本安裝
-# 開發時使用：pip install torch==2.14.0（PyPI 預設為 CUDA 13.0 版本）
+pip install torch==2.14.0   # PyPI 預設為 CUDA 13.0 版本，需驅動支援 CUDA 13.0 以上
 pip install -r requirements.txt
 ```
 
+若驅動不支援 CUDA 13.0，請先依 https://pytorch.org 安裝與驅動相符的 PyTorch 2.14.0，
+再用以下指令安裝其餘套件（排除與 CUDA 13.0 綁定的 torch、triton 與 nvidia- 套件，以免被換回）：
+```bash
+grep -viE "^(torch|triton|nvidia-)" requirements.txt > requirements_no_torch.txt
+pip install -r requirements_no_torch.txt
+```
+
 ## 執行
+在繳交資料夾中：
 ```bash
 cd code
 bash run.sh
 ```
-在 RTX 4070 上約需 8.5 小時（pretrain 約 3 小時、SFT 約 5 小時、格式訓練約 15 分鐘），
-建議在 tmux 中執行。最終模型輸出至 `output/model/`。
+在 RTX 4070 Ti SUPER 上實測約 8.4 小時（pretrain 2.9 小時、SFT 5.1 小時、格式訓練約 16 分鐘），
+建議在 tmux 中執行。最終模型輸出至 `output/model/`，訓練記錄輸出至 `output/logs/`。
 
 ## 流程
 1. 下載 MiniMind（commit f659b55）與訓練資料（revision 312afb4f），並比對檢查碼
