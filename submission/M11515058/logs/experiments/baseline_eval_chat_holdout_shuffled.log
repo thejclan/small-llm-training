@@ -1,0 +1,15 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Model: models/baseline | params: 63.9M | device: cuda
+Questions: 466 | subjects: 66 | few-shot: 0 | chat template: True
+  200/466  running acc=0.2600
+  400/466  running acc=0.2575
+
+=== Results ===
+  Humanities       0.2413
+  Other            0.2090
+  STEM             0.3749
+  Social Sciences  0.3482
+  MACRO (official) 0.2933
+  micro            0.2661 ± 0.0205
+  time: 5.3s | truncated prompts: 0
+Saved results to results/baseline_chat_holdout_shuffled.json

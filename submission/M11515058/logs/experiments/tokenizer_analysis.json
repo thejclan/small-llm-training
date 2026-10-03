@@ -1,0 +1,145 @@
+{
+  "tokenizer": "/home/isai-lab/hw1/models/baseline",
+  "n_questions": 2197,
+  "prompt_length_traditional": {
+    "mean": 194.7,
+    "median": 168,
+    "p90": 296,
+    "p99": 793,
+    "max": 1726,
+    "over_340": 0.0533,
+    "over_768": 0.0105
+  },
+  "prompt_length_simplified": {
+    "mean": 138.2,
+    "median": 119,
+    "p90": 206,
+    "p99": 615,
+    "max": 1505,
+    "over_340": 0.0218,
+    "over_768": 0.0032
+  },
+  "traditional_extra_tokens": 0.4092,
+  "chars_per_token": {
+    "traditional": 0.843,
+    "simplified": 1.187
+  },
+  "fragmented_chars_traditional": {
+    "unique_chars": 3445,
+    "unique_fragmented_ratio": 0.7614,
+    "occurrence_fragmented_ratio": 0.386
+  },
+  "fragmented_chars_simplified": {
+    "unique_chars": 3323,
+    "unique_fragmented_ratio": 0.6145,
+    "occurrence_fragmented_ratio": 0.0822
+  },
+  "top_fragmented_traditional": [
+    {
+      "char": "為",
+      "count": 1902,
+      "tokens": 2
+    },
+    {
+      "char": "於",
+      "count": 1217,
+      "tokens": 2
+    },
+    {
+      "char": "時",
+      "count": 891,
+      "tokens": 2
+    },
+    {
+      "char": "關",
+      "count": 868,
+      "tokens": 2
+    },
+    {
+      "char": "與",
+      "count": 865,
+      "tokens": 2
+    },
+    {
+      "char": "會",
+      "count": 666,
+      "tokens": 2
+    },
+    {
+      "char": "險",
+      "count": 664,
+      "tokens": 2
+    },
+    {
+      "char": "對",
+      "count": 655,
+      "tokens": 2
+    },
+    {
+      "char": "動",
+      "count": 628,
+      "tokens": 2
+    },
+    {
+      "char": "體",
+      "count": 601,
+      "tokens": 2
+    },
+    {
+      "char": "應",
+      "count": 587,
+      "tokens": 2
+    },
+    {
+      "char": "國",
+      "count": 566,
+      "tokens": 2
+    },
+    {
+      "char": "發",
+      "count": 552,
+      "tokens": 2
+    },
+    {
+      "char": "業",
+      "count": 507,
+      "tokens": 2
+    },
+    {
+      "char": "敘",
+      "count": 497,
+      "tokens": 2
+    },
+    {
+      "char": "經",
+      "count": 494,
+      "tokens": 3
+    },
+    {
+      "char": "產",
+      "count": 489,
+      "tokens": 2
+    },
+    {
+      "char": "學",
+      "count": 477,
+      "tokens": 2
+    },
+    {
+      "char": "確",
+      "count": 467,
+      "tokens": 2
+    },
+    {
+      "char": "種",
+      "count": 461,
+      "tokens": 2
+    }
+  ],
+  "label_tokens": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1
+  }
+}
